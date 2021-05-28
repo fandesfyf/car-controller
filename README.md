@@ -1,3 +1,3 @@
 # CarController
 
-一个通过socket通信的控制客户端和服务端
+一个通过Socket通信控制小车的客户端和服务端程序
