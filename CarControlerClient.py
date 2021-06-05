@@ -479,10 +479,14 @@ class MainWindow(tk.Frame):
         self.thetaright.configure(state="disable")
 
     def close(self):
-        self.stop()
-        self.doubleclickThread.join(2)
-        self.check_heartbeatThread.join(2)
+        try:
+            self.stop()
+            self.doubleclickThread.join(2)
+            self.check_heartbeatThread.join(2)
+        except:
+            print(sys.exc_info(), 487)
         self.master.destroy()
+        print("destroy")
 
 
 class ControlClient(threading.Thread):
