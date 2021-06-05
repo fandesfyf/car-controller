@@ -85,6 +85,9 @@ class MainWindow(tk.Frame):
                 configfile.write(json.dumps(self.configjs))
 
     def reloadconfig(self):
+        if '127.0.0.1'in self.configjs["hostdict"].keys():
+            self.configjs["hostdict"].pop("127.0.0.1")
+            self.configjs["hostdict"]["127.0.0.1"]=8787
         self.hostdict = self.configjs["hostdict"]
         # self.heartbeat = self.configjs["heartbeat"]  # 心跳计数,3次心跳连接无反应则断开
         self.max_v = self.configjs["max_v"]  # 最大速度
